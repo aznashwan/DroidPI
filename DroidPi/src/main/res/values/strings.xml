@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DroidPI</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome_text">Welcome to the DroidPI phone benchmarking application!</string>
+    <string name="entry_button">Pick a test</string>
+    <string name="pi_option">Digits of PI</string>
+    <string name="pi_description">A simple test which computes a large amount of the digits of PI to test CPU performance</string>
+    <string name="threads_option">Threads</string>
+    <string name="threads_description">A test which assesses your device\'s thread handling capabilities</string>
+    <string name="title_activity_tests">Pick your test</string>
+    <string name="title_activity_pitest">Digits of PI computation test</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_threads_test">Thread handling capabilities</string>
+
+</resources>
