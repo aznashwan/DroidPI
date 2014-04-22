@@ -1,29 +1,30 @@
 package com.upt.cti.droidpi;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.Button;
 
 
-public class TestsActivity extends ActionBarActivity {
+public class TestsActivity extends Activity
+{
 
-    Button piButton,threadsButton;
+    Button piButton, threadsButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tests);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
+        if(savedInstanceState==null)
+        {
+            getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
@@ -34,7 +35,8 @@ public class TestsActivity extends ActionBarActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.tests, menu);
@@ -42,12 +44,14 @@ public class TestsActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        int id=item.getItemId();
+        if(id==R.id.action_settings)
+        {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -56,28 +60,31 @@ public class TestsActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment
+    {
 
-        public PlaceholderFragment() {
+        public PlaceholderFragment()
+        {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_tests, container, false);
+                                 Bundle savedInstanceState)
+        {
+            View rootView=inflater.inflate(R.layout.fragment_tests, container, false);
             return rootView;
         }
     }
 
     public void piTest(View view)
     {
-        Intent intent=new Intent(this,PITestActivity.class);
+        Intent intent=new Intent(this, PITestActivity.class);
         startActivity(intent);
     }
 
     public void threadsTest(View view)
     {
-        Intent intent=new Intent(this,ThreadsTestActivity.class);
+        Intent intent=new Intent(this, ThreadsTestActivity.class);
         startActivity(intent);
     }
 }
