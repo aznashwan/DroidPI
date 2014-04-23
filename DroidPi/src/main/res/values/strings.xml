@@ -3,20 +3,30 @@
 
     <string name="app_name">DroidPI</string>
     <string name="action_settings">Settings</string>
+    <string name="action_exit">Exit</string>
+
     <string name="welcome_text">Welcome to the DroidPI phone benchmarking application!</string>
-    <string name="entry_button">Pick a test</string>
+    <string name="proceed_button">Pick a test</string>
+
     <string name="pi_tests_option">Digits of PI</string>
-    <string name="pitest_description">A simple test which computes a large amount of the digits of PI to test CPU performance\nTap the button below when you wish to start the test</string>
+    <string name="pitest_description">A simple test which computes a large amount of the digits of PI to test your processor\nTap the button below when you wish to start the test</string>
     <string name="pitest_start_button">Start computing dem\' digits</string>
+    <string name="pitest_wait_button">Because 3.14 is too abrupt an end...</string>
     <string name="pitest_wait_text">Computing all the digits of PI and then some</string>
+    <string name="pitest_finished_text">Enough digits have been computed to rule the world\nThe result of the test:</string>
+
     <string name="threads_tests_option">Threads</string>
     <string name="threadstest_description">A test which assesses your device\'s thread handling capabilities\nTap the button below when you wish to start the test</string>
     <string name="threadstest_start_button">Launch enough threads to rule the world</string>
+    <string name="threadstest_wait_button">Threading into oblivion...</string>
     <string name="threadstest_wait_text">Putting the complexity of the universe to shame through multithreading</string>
+    <string name="threadstest_finished_text">Almost lost sight of reality there for a sec\nThe result of the test:</string>
+
+
     <string name="title_activity_tests">Pick your test</string>
-    <string name="title_activity_pitest">Digits of PI computation test</string>
+    <string name="back_to_tests_title">back to tests</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_threads_test">Thread handling capabilities</string>
+    <string name="back_button">Try another test?</string>
 
 
 </resources>

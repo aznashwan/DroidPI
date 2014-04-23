@@ -18,6 +18,19 @@
         android:text="@string/pitest_description"
     />
 
+    <LinearLayout
+        android:id="@+id/pitest_progressbar_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible">
+        <ProgressBar
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:indeterminate="true"
+            android:layout_centerInParent="true"
+        />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +39,7 @@
         >
 
         <Button
-            android:id="@+id/proceed_button"
+            android:id="@+id/pitest_start_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"

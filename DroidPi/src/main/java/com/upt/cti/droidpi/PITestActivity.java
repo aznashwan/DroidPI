@@ -8,19 +8,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 public class PITestActivity extends Activity
 {
 
-    TextView text;
+    private TextView text;
+    private Button button;
+    private LinearLayout progressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        text=(TextView) findViewById(R.id.pitest_text);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pitest);
         if(savedInstanceState==null)
@@ -77,6 +79,37 @@ public class PITestActivity extends Activity
     public void PITest(View view)
     {
         text=(TextView) findViewById(R.id.pitest_text);
+        button=(Button) findViewById(R.id.pitest_start_button);
+        progressLayout=(LinearLayout) findViewById(R.id.pitest_progressbar_layout);
+
+
+        //change TextView to loading text
         text.setText(R.string.pitest_wait_text);
+        //set the Progress dongle to Visible
+        progressLayout.setVisibility(View.VISIBLE);
+        //change Button text and set to inactive
+        button.setText(R.string.pitest_wait_button);
+        button.setEnabled(false);
+
+        //DO WHATEVER
+
+
+        //hide progress dongle
+        progressLayout.setVisibility(View.INVISIBLE);
+        //change TextView to finished text
+        text.setText(R.string.pitest_finished_text);
+
+        //make button active and go back
+        button.setText(R.string.back_button);
+        button.setEnabled(true);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                finish();
+            }
+        });
+
     }
 }
