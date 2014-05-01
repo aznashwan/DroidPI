@@ -9,8 +9,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.upt.cti.droidpi.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,22 +19,30 @@
         </activity>
         <activity
             android:name="com.upt.cti.droidpi.TestsActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_tests" >
+            android:label="@string/title_activity_tests"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.upt.cti.droidpi.PITestActivity"
-            android:screenOrientation="portrait"
             android:label="@string/back_to_tests_title"
-            android:parentActivityName="com.upt.cti.droidpi.TestsActivity" >
+            android:parentActivityName="com.upt.cti.droidpi.TestsActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="TestsActivity" />
         </activity>
         <activity
             android:name="com.upt.cti.droidpi.ThreadsTestActivity"
-            android:screenOrientation="portrait"
             android:label="@string/back_to_tests_title"
+            android:parentActivityName="com.upt.cti.droidpi.TestsActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="TestsActivity" />
+        </activity>
+        <activity
+            android:name="com.upt.cti.droidpi.ArithmeticTestActivity"
+            android:label="@string/title_activity_arithmetic_test"
             android:parentActivityName="com.upt.cti.droidpi.TestsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

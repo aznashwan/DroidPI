@@ -87,4 +87,10 @@ public class TestsActivity extends Activity
         Intent intent=new Intent(this, ThreadsTestActivity.class);
         startActivity(intent);
     }
+
+    public void arithmeticsTest(View view)
+    {
+        Intent intent=new Intent(this, ArithmeticTestActivity.class);
+        startActivity(intent);
+    }
 }
