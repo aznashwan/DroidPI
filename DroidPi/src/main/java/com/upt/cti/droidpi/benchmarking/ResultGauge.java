@@ -6,16 +6,20 @@ public class ResultGauge
 {
     private static final long pitest_baseline=1000;
     private static final long threadstest_baseline=1000;
-    private static final long arithmetictest_baseline=1000;
-    private ArithmeticBenchmark arithmeticBenchmark;
+    private static final long arithmetictest_baseline=30000000;
 
-    public ResultGauge()
+    public static int arithmeticScore(long inputResult)
     {
-        arithmeticBenchmark=new ArithmeticBenchmark();
+        return (int) ((inputResult*100)/arithmetictest_baseline);
     }
 
-    public int arithmeticScore()
+    public static int PIScore(long inputResult)
     {
-        return (int) (arithmeticBenchmark.getResult()*100/arithmetictest_baseline);
+        return (int) ((inputResult*100)/pitest_baseline);
+    }
+
+    public static int threadsScore(long inputResult)
+    {
+        return (int) ((inputResult*100)/threadstest_baseline);
     }
 }
