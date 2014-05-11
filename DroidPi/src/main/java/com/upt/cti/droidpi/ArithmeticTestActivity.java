@@ -23,7 +23,6 @@ public class ArithmeticTestActivity extends Activity {
     private LinearLayout progressLayout;
 
     private ArithmeticBenchmark arithmeticBenchmark;
-    private ResultGauge resultGauge;
 
 
     @Override
@@ -80,7 +79,6 @@ public class ArithmeticTestActivity extends Activity {
         progressLayout=(LinearLayout) findViewById(R.id.arithmetictest_progressbar_layout);
 
         arithmeticBenchmark=new ArithmeticBenchmark();
-        resultGauge=new ResultGauge();
 
 
         //change TextView to loading text
@@ -93,11 +91,12 @@ public class ArithmeticTestActivity extends Activity {
 
         //DO WHATEVER
         arithmeticBenchmark.runTest();
+        text.setText(arithmeticBenchmark.resultMessage()+"\nThe appreciated score of your device being:"+ResultGauge.arithmeticScore(arithmeticBenchmark.getResult()));
 
         //hide progress dongle
         progressLayout.setVisibility(View.INVISIBLE);
         //change TextView to finished text
-        text.setText(R.string.arithmetictest_finished_text);
+        //text.setText(R.string.arithmetictest_finished_text);
 
         //make button active and go back
         button.setText(R.string.back_button);

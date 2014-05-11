@@ -7,7 +7,7 @@ import com.upt.cti.droidpi.benchmarking.timing.Timer;
 public class ArithmeticBenchmark implements IBenchmark
 {
     private int a,b,c,i,v[];
-    private static final int n=1000;
+    private static final int n=1000000;
     private long result;
     private Timer t;
 
