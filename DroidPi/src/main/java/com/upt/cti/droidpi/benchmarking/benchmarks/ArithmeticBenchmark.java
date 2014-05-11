@@ -7,7 +7,7 @@ import com.upt.cti.droidpi.benchmarking.timing.Timer;
 public class ArithmeticBenchmark implements IBenchmark
 {
     private int a,b,c,i,v[];
-    private static final int n=1000000;
+    private static final int totalRuns=10000000;
     private long result;
     private Timer t;
 
@@ -19,12 +19,19 @@ public class ArithmeticBenchmark implements IBenchmark
         b=0;
         c=0;
 
-        v=new int[n];
-        for(i=0;i<n;i++)
+        v=new int[totalRuns];
+        for(i=0;i<totalRuns;i++)
             v[i]=(int)(Math.random());
     }
 
-    private long branching()
+    public void warmUp()
+    {
+        this.branching(50);
+        this.arithmetics(50);
+        this.arrays(50);
+    }
+
+    private long branching(int n)
     {
         a=3;
 
@@ -44,7 +51,7 @@ public class ArithmeticBenchmark implements IBenchmark
         return	t.stop();
     }
 
-    private long arithmetics()
+    private long arithmetics(int n)
     {
         a=5;
         b=8;
@@ -63,7 +70,7 @@ public class ArithmeticBenchmark implements IBenchmark
         return t.stop();
     }
 
-    private long array()
+    private long arrays(int n)
     {
         t.start();
         for(i=0;i<n;i++)
@@ -76,8 +83,9 @@ public class ArithmeticBenchmark implements IBenchmark
     public void runTest()
     {
         this.initialize();
+        this.warmUp();
 
-        this.result = this.branching()+this.arithmetics()+this.array();
+        this.result = this.branching(totalRuns)+this.arithmetics(totalRuns)+this.arrays(totalRuns);
     }
 
     public long getResult()
@@ -87,6 +95,6 @@ public class ArithmeticBenchmark implements IBenchmark
 
     public String resultMessage()
     {
-        return Logger.write("Your device's computation time was:", TimeUnit.convert(this.result,TimeUnit.MILI),TimeUnit.MILI);
+        return Logger.write("Your device's computation time was ", TimeUnit.convert(this.result,TimeUnit.MILI),TimeUnit.MILI);
     }
 }
