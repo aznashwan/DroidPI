@@ -15,13 +15,13 @@ public enum TimeUnit
         switch(toConvert)
         {
             case NANO:
-                return n/1000000000;
-            case MICRO:
-                return n/1000000;
-            case MILI:
-                return n/1000;
-            case SEC:
                 return n;
+            case MICRO:
+                return n/1000;
+            case MILI:
+                return n/1000000;
+            case SEC:
+                return n/1000000000;
             default:
                 return 0;
         }
