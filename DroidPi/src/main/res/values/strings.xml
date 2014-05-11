@@ -6,21 +6,18 @@
     <string name="action_exit">Exit</string>
     <string name="welcome_text">Welcome to the DroidPI phone benchmarking application!</string>
     <string name="proceed_button">Pick a test</string>
-
     <string name="pi_tests_option">Digits of PI</string>
     <string name="pitest_description">A simple test which computes a large amount of the digits of PI to test your processor\nTap the button below when you wish to start the test</string>
     <string name="pitest_start_button">Start computing dem\' digits</string>
     <string name="pitest_wait_button">Because 3.14 is too abrupt an end...</string>
     <string name="pitest_wait_text">Computing all the digits of PI and then some</string>
     <string name="pitest_finished_text">Enough digits have been computed to rule the world\nThe result of the test:</string>
-
     <string name="threads_tests_option">Threads</string>
     <string name="threadstest_description">A test which assesses your device\'s thread handling capabilities\nTap the button below when you wish to start the test</string>
     <string name="threadstest_start_button">Launch enough threads to rule the world</string>
     <string name="threadstest_wait_button">Threading into oblivion...</string>
     <string name="threadstest_wait_text">Putting the complexity of the universe to shame through multithreading</string>
     <string name="threadstest_finished_text">Almost lost sight of reality there for a sec\nThe result of the test:</string>
-
     <string name="arithmetic_tests_option">Arithmetics</string>
     <string name="arithmetictest_description">A test which gauges your device\'s arithmetic capabilities.\nTap the button below when you wish to start the test</string>
     <string name="arithmetictest_start_button">Compute all the things!</string>
@@ -28,10 +25,18 @@
     <string name="arithmetictest_wait_text">Please wait while we compute the distance to infinity</string>
     <string name="arithmetictest_finished_text">Crunched so many numbers I now have a 6-pack\nYour results were:</string>
 
+    <string name="recursion_tests_option">Recursion</string>
+    <string name="recursiontest_description">This test focuses on testing your phone\'s recursion capabilities\nTap the button below when you wish to start the test</string>
+    <string name="recursiontest_start_button">S...ss...s..start stuttering</string>
+    <string name="recursiontest_wait_button">S....s......sss....s.sss...s</string>
+    <string name="recursiontest_wait_text">Please wait while we\'re repeating ourselves</string>
+    <string name="recursiontest_finished_text">I hope that stutter ww..wares off eventually\nYour results were:</string>
+
     <string name="title_activity_tests">Pick your test</string>
-    <string name="back_to_tests_title">back to tests</string>
+    <string name="back_to_tests_title">Back to tests</string>
     <string name="hello_world">Hello world!</string>
     <string name="back_button">Try another test?</string>
     <string name="title_activity_arithmetic_test">Arithmetic Capabilities Test</string>
+    <string name="title_activity_recursion_test">Recursion Assessment</string>
 
 </resources>
