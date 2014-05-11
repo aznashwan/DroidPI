@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.upt.cti.droidpi.benchmarking.ResultGauge;
+import com.upt.cti.droidpi.benchmarking.benchmarks.PIBenchmark;
+
 
 public class PITestActivity extends Activity
 {
@@ -19,6 +22,8 @@ public class PITestActivity extends Activity
     private TextView text;
     private Button button;
     private LinearLayout progressLayout;
+
+    private PIBenchmark piBenchmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -82,6 +87,8 @@ public class PITestActivity extends Activity
         button=(Button) findViewById(R.id.pitest_start_button);
         progressLayout=(LinearLayout) findViewById(R.id.pitest_progressbar_layout);
 
+        piBenchmark=new PIBenchmark();
+
 
         //change TextView to loading text
         text.setText(R.string.pitest_wait_text);
@@ -92,6 +99,8 @@ public class PITestActivity extends Activity
         button.setEnabled(false);
 
         //DO WHATEVER
+        piBenchmark.runTest();
+        text.setText(piBenchmark.resultMessage()+"\nThe appreciated score of your device being:"+ResultGauge.arithmeticScore(piBenchmark.getResult()));
 
 
         //hide progress dongle
