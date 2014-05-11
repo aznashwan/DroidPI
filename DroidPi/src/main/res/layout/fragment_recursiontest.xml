@@ -18,6 +18,7 @@
         android:text="@string/recursiontest_description"
         />
 
+    <!--deprecated-->
     <LinearLayout
         android:id="@+id/recursiontest_progressbar_layout"
         android:layout_width="wrap_content"
