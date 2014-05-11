@@ -1,7 +1,9 @@
 package com.upt.cti.droidpi;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,6 +23,8 @@ public class ThreadsTestActivity extends Activity
     private TextView text;
     private Button button;
     private LinearLayout progressLayout;
+
+    private AlertDialog.Builder builder;
 
     private ThreadsBenchmark threadsBenchmark;
 
@@ -86,26 +90,34 @@ public class ThreadsTestActivity extends Activity
         button=(Button) findViewById(R.id.threadstest_start_button);
         progressLayout=(LinearLayout) findViewById(R.id.threadstest_progressbar_layout);
 
+        builder=new AlertDialog.Builder(this);
+
         threadsBenchmark=new ThreadsBenchmark();
 
-        //change TextView to loading text
+
         text.setText(R.string.threadstest_wait_text);
-        //set the Progress dongle to Visible
         progressLayout.setVisibility(View.VISIBLE);
-        //change Button text and set to inactive
         button.setText(R.string.threadstest_wait_button);
         button.setEnabled(false);
 
-        //DO WHATEVER
-        threadsBenchmark.runTest();
-        text.setText(threadsBenchmark.resultMessage()+"\nYour gauged score being: "+ResultGauge.threadsScore(threadsBenchmark.getResult()));
 
-        //hide progress dongle
+        threadsBenchmark.runTest();
+
+
         progressLayout.setVisibility(View.INVISIBLE);
-        //change TextView to finished text
         text.setText(R.string.threadstest_finished_text);
 
-        //make button active and go back
+        builder.setTitle("Your result:");
+        builder.setMessage(threadsBenchmark.resultMessage()+"\nYour gauged score being: "+ResultGauge.threadsScore(threadsBenchmark.getResult()));
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                dialogInterface.dismiss();
+            }
+        });
+
         button.setText(R.string.back_button);
         button.setEnabled(true);
         button.setOnClickListener(new View.OnClickListener()

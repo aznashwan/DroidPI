@@ -2,7 +2,9 @@ package com.upt.cti.droidpi;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +25,8 @@ public class RecursionTestActivity extends Activity {
     private TextView text;
     private Button button;
     private LinearLayout progressLayout;
+
+    private AlertDialog.Builder builder;
 
     private RecursionBenchmark recursionBenchmark;
 
@@ -79,28 +83,35 @@ public class RecursionTestActivity extends Activity {
         button=(Button) findViewById(R.id.recursiontest_start_button);
         progressLayout=(LinearLayout) findViewById(R.id.recursiontest_progressbar_layout);
 
+        builder=new AlertDialog.Builder(this);
+
         recursionBenchmark=new RecursionBenchmark();
 
 
-        //change TextView to loading text
         text.setText(R.string.recursiontest_wait_text);
-        //set the Progress dongle to Visible
         progressLayout.setVisibility(View.VISIBLE);
-        //change Button text and set to inactive
         button.setText(R.string.recursiontest_wait_button);
         button.setEnabled(false);
 
-        //DO WHATEVER
+
         recursionBenchmark.runTest();
-        text.setText(recursionBenchmark.resultMessage()+"\nThe appreciated score of your device being:"+ResultGauge.arithmeticScore(recursionBenchmark.getResult()));
 
 
-        //hide progress dongle
         progressLayout.setVisibility(View.INVISIBLE);
-        //change TextView to finished text
         text.setText(R.string.recursiontest_finished_text);
 
-        //make button active and go back
+        builder.setTitle("Test result:");
+        builder.setMessage(recursionBenchmark.resultMessage()+"\nThe appreciated score of your device being:"+ResultGauge.arithmeticScore(recursionBenchmark.getResult()));
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                dialogInterface.cancel();
+            }
+        });
+        builder.show();
+
         button.setText(R.string.back_button);
         button.setEnabled(true);
         button.setOnClickListener(new View.OnClickListener()
