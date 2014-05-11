@@ -15,8 +15,8 @@ public class PIBenchmark implements IBenchmark
     private static final BigDecimal FOUR = new BigDecimal("4");
     private static final BigDecimal FIVE = new BigDecimal("5");
     private static final BigDecimal TWO_THIRTY_NINE = new BigDecimal("239");
-    private static final int calcSize=30;
-    private static final int size=30;
+    private static final int calcSize=1000;
+    private static final int size=1000;
 
     private BigDecimal p;
 
