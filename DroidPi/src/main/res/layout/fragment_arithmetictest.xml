@@ -18,6 +18,7 @@
         android:text="@string/arithmetictest_description"
         />
 
+    <!--deprecated-->
     <LinearLayout
         android:id="@+id/arithmetictest_progressbar_layout"
         android:layout_width="wrap_content"

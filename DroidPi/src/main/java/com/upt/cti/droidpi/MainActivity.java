@@ -14,7 +14,6 @@ import android.widget.Button;
 
 public class MainActivity extends Activity
 {
-
     Button testsButton;
 
     @Override
@@ -49,9 +48,9 @@ public class MainActivity extends Activity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id=item.getItemId();
-        if(id==R.id.action_settings)
+        if(id==R.id.action_about)
         {
-            return true;
+            this.showDescription();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -75,11 +74,15 @@ public class MainActivity extends Activity
         }
     }
 
+    public void showDescription()
+    {
+        Intent intent=new Intent(this, AboutAppActivity.class);
+        startActivity(intent);
+    }
 
     public void proceedToTests(View view)
     {
         Intent intent=new Intent(this, TestsActivity.class);
         startActivity(intent);
     }
-
 }

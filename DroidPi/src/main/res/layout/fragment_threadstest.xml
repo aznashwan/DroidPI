@@ -18,6 +18,7 @@
         android:text="@string/threadstest_description"
         />
 
+    <!--deprecated-->
     <LinearLayout
         android:id="@+id/threadstest_progressbar_layout"
         android:layout_width="wrap_content"
