@@ -3,6 +3,8 @@
 
     <string name="app_name">DroidPI</string>
     <string name="action_settings">Settings</string>
+    <string name="action_about">About this application</string>
+    <string name="action_return">Return to application</string>
     <string name="action_exit">Exit</string>
     <string name="welcome_text">Welcome to the DroidPI phone benchmarking application!</string>
     <string name="proceed_button">Pick a test</string>
@@ -11,32 +13,64 @@
     <string name="pitest_start_button">Start computing dem\' digits</string>
     <string name="pitest_wait_button">Because 3.14 is too abrupt an end...</string>
     <string name="pitest_wait_text">Computing all the digits of PI and then some</string>
-    <string name="pitest_finished_text">Enough digits have been computed to rule the world\nThe result of the test:</string>
+    <string name="pitest_finished_text">Enough digits have been computed to rule the world!</string>
     <string name="threads_tests_option">Threads</string>
     <string name="threadstest_description">A test which assesses your device\'s thread handling capabilities\nTap the button below when you wish to start the test</string>
     <string name="threadstest_start_button">Launch enough threads to rule the world</string>
     <string name="threadstest_wait_button">Threading into oblivion...</string>
     <string name="threadstest_wait_text">Putting the complexity of the universe to shame through multithreading</string>
-    <string name="threadstest_finished_text">Almost lost sight of reality there for a sec\nThe result of the test:</string>
+    <string name="threadstest_finished_text">Almost lost sight of reality there for a sec...</string>
     <string name="arithmetic_tests_option">Arithmetics</string>
     <string name="arithmetictest_description">A test which gauges your device\'s arithmetic capabilities.\nTap the button below when you wish to start the test</string>
     <string name="arithmetictest_start_button">Compute all the things!</string>
     <string name="arithmetictest_wait_button">Putting mathematicians to shame...</string>
     <string name="arithmetictest_wait_text">Please wait while we compute the distance to infinity</string>
-    <string name="arithmetictest_finished_text">Crunched so many numbers I now have a 6-pack\nYour results were:</string>
-
+    <string name="arithmetictest_finished_text">Crunched so many numbers I now have a 6-pack</string>
     <string name="recursion_tests_option">Recursion</string>
     <string name="recursiontest_description">This test focuses on testing your phone\'s recursion capabilities\nTap the button below when you wish to start the test</string>
     <string name="recursiontest_start_button">S...ss...s..start stuttering</string>
     <string name="recursiontest_wait_button">S....s......sss....s.sss...s</string>
     <string name="recursiontest_wait_text">Please wait while we\'re repeating ourselves</string>
-    <string name="recursiontest_finished_text">I hope that stutter ww..wares off eventually\nYour results were:</string>
-
+    <string name="recursiontest_finished_text">I hope that stutter ww..wares off eventually</string>
     <string name="title_activity_tests">Pick your test</string>
     <string name="back_to_tests_title">Back to tests</string>
     <string name="hello_world">Hello world!</string>
     <string name="back_button">Try another test?</string>
+    <string name="title_activity_pitest">Digits of PI Computation Test</string>
+    <string name="title_activity_threadstest">Threading capabilities test</string>
     <string name="title_activity_arithmetic_test">Arithmetic Capabilities Test</string>
     <string name="title_activity_recursion_test">Recursion Assessment</string>
+    <string name="title_activity_about_app">About this Application</string>
+
+    <string name="app_description">This application was developed by Stefania-Bianca Costache and
+        Nashwan-Mouhammad Azhari, two students from the University \"Politehnica\" of Timisoara,
+        as part of their practical assignment for the subject entitled \"Computer Organization\";
+        all under the exquisite guidance of Professor Mircea Udrescu, the course\'s head lecturer, and Professor
+        Alexandru Topirceanu, the one in charge of the laboratory hours, for whose respective involvements we are
+        thoroughly in debt. \n\nEntitled simply \"DroidPI\", a name derived from the very first benchmark
+        we have ever written, this application aims to serve a narrow but significant nieche: that of the
+        simple, straightforward and non-invasive benchmarking of Android devices.\nWe focused
+        on four major benchmarks, each one designed specifically to test a certain performance aspect
+        of your device\'s CPU.\nAlthough, as some may argue, rudimentary, DroidPI offers the quickest approach
+        to gauging your phone\'s real world computational capabilities without requiring any sort of permissions
+        apart from that of basic running.\n\nThe benchmarked algorithms (the computation of the digits of PI,
+        the use of numerous threads for the obtaining of a square root, the incessant recursive calling of
+        the same function for finding more and more primes and the repeated execution of a handful of arithmetic
+        operations) were all adapted for use in our project by Stefania, whilst the overall design and implementation
+        of the application itself was done by Nashwan.\n\nAs far as the scoring system goes:\nAll of the benchmarks
+        are run and their respective execution times are measured in an utmost isolative manner, the application then
+        offering the results in milliseconds, as well as a per 100 score which relates your result to the scores obtained by
+        the Samsung Galaxy S4, arguably one of the most powerful phones on the market upon this application\'s inception.\n
+        Now granted, due to numerous outside influences the final assessed score may vary, even exceeding 100 in the case of
+        higher end phones. The shortcomings of the scoring system were part of the compromise of making the application as
+        transparent and non-invasive as possible whilst still offering a tangible result apart from a time measurement /n/n
+        As the authors, we would like to thank you for trying out the application. Although it may seem insignificant
+        to you, the making of this greatly contributed to the skillsets and overall awareness of the developers and
+        vastly broadened their knowledge of the working of hardware benchmarking, an activity we hope to partake in
+        again in the near future.\n\nIf you have (surprisingly) stayed with us this long, and because we are firm
+        advocates of the Open-Source model, we would like to welcome you to view, analyse, fork and freely use
+        the source code for this application, which can be found in full Android Studio Gradle project form at /n\n
+        https://github.com/aznashwan/DroidPI
+    </string>
 
 </resources>
