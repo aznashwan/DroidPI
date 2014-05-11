@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.upt.cti.droidpi.benchmarking.ResultGauge;
 import com.upt.cti.droidpi.benchmarking.benchmarks.RecursionBenchmark;
+import com.upt.cti.droidpi.benchmarking.timing.TimeUnit;
 
 
 public class RecursionTestActivity extends Activity {
@@ -55,8 +57,8 @@ public class RecursionTestActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_about) {
+            this.showDescription();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -77,7 +79,14 @@ public class RecursionTestActivity extends Activity {
         }
     }
 
-    public void PITest(View view)
+    public void showDescription()
+    {
+        Intent intent=new Intent(this, AboutAppActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void RecursionTest(View view)
     {
         text=(TextView) findViewById(R.id.recursiontest_text);
         button=(Button) findViewById(R.id.recursiontest_start_button);
@@ -101,7 +110,7 @@ public class RecursionTestActivity extends Activity {
         text.setText(R.string.recursiontest_finished_text);
 
         builder.setTitle("Test result:");
-        builder.setMessage(recursionBenchmark.resultMessage()+"\nThe appreciated score of your device being:"+ResultGauge.arithmeticScore(recursionBenchmark.getResult()));
+        builder.setMessage(recursionBenchmark.resultMessage()+"\n The appreciated score of your device being "+ResultGauge.recursionScore(TimeUnit.convert(recursionBenchmark.getResult(), TimeUnit.MILI)));
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
         {
             @Override

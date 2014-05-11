@@ -1,29 +1,27 @@
 package com.upt.cti.droidpi.benchmarking.benchmarks;
 
 
+import com.upt.cti.droidpi.benchmarking.logging.Logger;
+import com.upt.cti.droidpi.benchmarking.timing.TimeUnit;
+import com.upt.cti.droidpi.benchmarking.timing.Timer;
+
 public class RecursionBenchmark implements IBenchmark
 {
-    private int size;
-    private int savedI;
+    private static final int nPrimes=10000;
 
-    private int recursivePrimeSum(int i, int l, int n)
+    private Timer t;
+    private long result;
+
+    @Override
+    public void initialize()
     {
-        int k,prime=i-1,S=0;
-        if(i>=n) return 0;
-        for(k=0;k<l;k++)
-        {
-            prime=findNextPrime(prime+1);
-            if(prime<n) S=S+prime;
-        }
-        try
-        {
-            return S+recursivePrimeSum(prime+1,l,n);
-        }catch(StackOverflowError e)
-        {
-            savedI=i;
+        t=new Timer();
+    }
 
-            return 0;
-        }
+    @Override
+    public void warmUp()
+    {
+        this.recursivePrimeSum(2,20);
     }
 
     private int recursivePrimeSum(int i, int n)
@@ -35,7 +33,6 @@ public class RecursionBenchmark implements IBenchmark
             return prime+recursivePrimeSum(prime+1,n);
         }catch(StackOverflowError e)
         {
-            System.out.println("Crashed at "+i+".");
             return 0;
         }
     }
@@ -55,26 +52,25 @@ public class RecursionBenchmark implements IBenchmark
     }
 
     @Override
-    public void initialize()
-    {
-
-    }
-
-    @Override
     public void runTest()
     {
+        this.initialize();
+        this.warmUp();
 
+        t.start();
+        this.recursivePrimeSum(2,nPrimes);
+        result=t.stop();
     }
 
     @Override
     public long getResult()
     {
-        return 0;
+        return result;
     }
 
     @Override
     public String resultMessage()
     {
-        return null;
+        return Logger.write("The sum of the first 10000 primes was computed recursively in ", TimeUnit.convert(this.result,TimeUnit.MICRO), TimeUnit.MICRO);
     }
 }
