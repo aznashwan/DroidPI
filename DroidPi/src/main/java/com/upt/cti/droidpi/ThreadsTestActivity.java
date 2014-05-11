@@ -12,12 +12,17 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.upt.cti.droidpi.benchmarking.ResultGauge;
+import com.upt.cti.droidpi.benchmarking.benchmarks.ThreadsBenchmark;
+
 
 public class ThreadsTestActivity extends Activity
 {
     private TextView text;
     private Button button;
     private LinearLayout progressLayout;
+
+    private ThreadsBenchmark threadsBenchmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -81,6 +86,7 @@ public class ThreadsTestActivity extends Activity
         button=(Button) findViewById(R.id.threadstest_start_button);
         progressLayout=(LinearLayout) findViewById(R.id.threadstest_progressbar_layout);
 
+        threadsBenchmark=new ThreadsBenchmark();
 
         //change TextView to loading text
         text.setText(R.string.threadstest_wait_text);
@@ -91,7 +97,8 @@ public class ThreadsTestActivity extends Activity
         button.setEnabled(false);
 
         //DO WHATEVER
-
+        threadsBenchmark.runTest();
+        text.setText(threadsBenchmark.resultMessage()+"\nYour gauged score being: "+ResultGauge.threadsScore(threadsBenchmark.getResult()));
 
         //hide progress dongle
         progressLayout.setVisibility(View.INVISIBLE);
