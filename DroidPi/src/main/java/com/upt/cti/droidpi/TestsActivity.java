@@ -15,7 +15,7 @@ import android.widget.Button;
 public class TestsActivity extends Activity
 {
 
-    Button piButton, threadsButton;
+    Button piButton, threadsButton, recursionButton, arithmeticsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,6 +31,8 @@ public class TestsActivity extends Activity
 
         piButton=(Button) findViewById(R.id.pi_button);
         threadsButton=(Button) findViewById(R.id.threads_button);
+        recursionButton=(Button) findViewById(R.id.recursion_button);
+        arithmeticsButton=(Button) findViewById(R.id.arithmetics_button);
     }
 
 
@@ -85,6 +87,12 @@ public class TestsActivity extends Activity
     public void threadsTest(View view)
     {
         Intent intent=new Intent(this, ThreadsTestActivity.class);
+        startActivity(intent);
+    }
+
+    public void recursionTest(View view)
+    {
+        Intent intent=new Intent(this, RecursionTestActivity.class);
         startActivity(intent);
     }
 

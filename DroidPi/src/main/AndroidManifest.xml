@@ -48,6 +48,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="TestsActivity" />
         </activity>
+        <activity
+            android:name="com.upt.cti.droidpi.RecursionTestActivity"
+            android:label="@string/title_activity_recursion_test"
+            android:parentActivityName="com.upt.cti.droidpi.TestsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="TestsActivity" />
+        </activity>
     </application>
 
 </manifest>
