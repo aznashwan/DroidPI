@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.upt.cti.droidpi.benchmarking.ResultGauge;
 import com.upt.cti.droidpi.benchmarking.benchmarks.PIBenchmark;
+import com.upt.cti.droidpi.benchmarking.timing.TimeUnit;
 
 
 public class PITestActivity extends Activity
@@ -67,9 +69,9 @@ public class PITestActivity extends Activity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id=item.getItemId();
-        if(id==R.id.action_settings)
+        if(id==R.id.action_about)
         {
-            return true;
+            this.showDescription();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -93,6 +95,13 @@ public class PITestActivity extends Activity
             return rootView;
         }
     }
+
+    public void showDescription()
+    {
+        Intent intent=new Intent(this, AboutAppActivity.class);
+        startActivity(intent);
+    }
+
 
     //the actual place where the testing is to be done; called when this.button is tapped
     public void PITest(View view)
@@ -120,14 +129,14 @@ public class PITestActivity extends Activity
         piBenchmark.runTest();
 
 
-        //hide the progreesbar layou
+        //hide the progressbar layout
         progressLayout.setVisibility(View.INVISIBLE);
         //change textView to finished text
         text.setText(R.string.pitest_finished_text);
 
         //configure the result popup builder and show it on the screen
         builder.setTitle("The result:");
-        builder.setMessage(piBenchmark.resultMessage()+"Your device's score being: "+ResultGauge.PIScore(piBenchmark.getResult()));
+        builder.setMessage(piBenchmark.resultMessage()+"\n Your device's score being "+ResultGauge.PIScore(TimeUnit.convert(piBenchmark.getResult(), TimeUnit.MILI)));
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
         {
             @Override
@@ -136,6 +145,7 @@ public class PITestActivity extends Activity
                 dialogInterface.dismiss();
             }
         });
+        builder.show();
 
         //make button active and finalize this activity when tapped
         button.setText(R.string.back_button);

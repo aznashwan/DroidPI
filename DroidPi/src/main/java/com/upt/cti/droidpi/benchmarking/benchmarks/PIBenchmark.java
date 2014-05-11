@@ -1,6 +1,5 @@
 package com.upt.cti.droidpi.benchmarking.benchmarks;
 
-import com.upt.cti.droidpi.benchmarking.benchmarks.IBenchmark;
 import com.upt.cti.droidpi.benchmarking.logging.Logger;
 import com.upt.cti.droidpi.benchmarking.timing.TimeUnit;
 import com.upt.cti.droidpi.benchmarking.timing.Timer;
@@ -15,8 +14,8 @@ public class PIBenchmark implements IBenchmark
     private static final BigDecimal FOUR = new BigDecimal("4");
     private static final BigDecimal FIVE = new BigDecimal("5");
     private static final BigDecimal TWO_THIRTY_NINE = new BigDecimal("239");
-    private static final int calcSize=1000;
-    private static final int size=1000;
+    private static final int numDigits=10000;
+    private static final int calcSize=10010;
 
     private BigDecimal p;
 
@@ -30,7 +29,13 @@ public class PIBenchmark implements IBenchmark
         t=new Timer();
     }
 
-    private BigDecimal PI()
+    @Override
+    public void warmUp()
+    {
+        this.PI(10,15);
+    }
+
+    private BigDecimal PI(int calcSize, int size)
     {
         p=FOUR.multiply((FOUR.multiply(arccot(FIVE, calcSize)))
                 .subtract(arccot(TWO_THIRTY_NINE, calcSize)))
@@ -64,9 +69,10 @@ public class PIBenchmark implements IBenchmark
     public void runTest()
     {
         this.initialize();
+        this.warmUp();
 
         t.start();
-        this.PI();
+        this.PI(numDigits,calcSize);
         this.result=t.stop();
     }
 
@@ -79,6 +85,6 @@ public class PIBenchmark implements IBenchmark
     @Override
     public String resultMessage()
     {
-        return Logger.write("1000 digits of PI have been computed, it took: ", TimeUnit.convert(this.result,TimeUnit.MILI), TimeUnit.MILI);
+        return Logger.write("10000 digits of PI have been computed, it took your device ", TimeUnit.convert(this.result,TimeUnit.MILI), TimeUnit.MILI);
     }
 }
