@@ -1,25 +1,30 @@
 package com.upt.cti.droidpi.benchmarking;
 
-import com.upt.cti.droidpi.benchmarking.benchmarks.ArithmeticBenchmark;
-
 public class ResultGauge
 {
-    private static final long pitest_baseline=1000;
-    private static final long threadstest_baseline=1000;
-    private static final long arithmetictest_baseline=30000000;
+    //the baseline values measured for a Samsung Galaxy S4
+    private static final long pitest_baseline=6000;
+    private static final long threadstest_baseline=100;
+    private static final long recursiontest_baseline=1;
+    private static final long arithmetictest_baseline=500;
 
     public static int arithmeticScore(long inputResult)
     {
-        return (int) ((inputResult*100)/arithmetictest_baseline);
+        return (int) ((arithmetictest_baseline*100)/inputResult);
     }
 
     public static int PIScore(long inputResult)
     {
-        return (int) ((inputResult*100)/pitest_baseline);
+        return (int) ((pitest_baseline*100)/inputResult);
     }
 
     public static int threadsScore(long inputResult)
     {
-        return (int) ((inputResult*100)/threadstest_baseline);
+        return (int) ((threadstest_baseline*100)/inputResult);
+    }
+
+    public static int recursionScore(long inputResult)
+    {
+        return (int) ((recursiontest_baseline*100)/inputResult);
     }
 }
