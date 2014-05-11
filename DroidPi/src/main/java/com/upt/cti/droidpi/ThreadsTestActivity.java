@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.upt.cti.droidpi.benchmarking.ResultGauge;
 import com.upt.cti.droidpi.benchmarking.benchmarks.ThreadsBenchmark;
+import com.upt.cti.droidpi.benchmarking.timing.TimeUnit;
 
 
 public class ThreadsTestActivity extends Activity
@@ -58,9 +60,9 @@ public class ThreadsTestActivity extends Activity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id=item.getItemId();
-        if(id==R.id.action_settings)
+        if(id==R.id.action_about)
         {
-            return true;
+            this.showDescription();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -83,6 +85,13 @@ public class ThreadsTestActivity extends Activity
             return rootView;
         }
     }
+
+    public void showDescription()
+    {
+        Intent intent=new Intent(this, AboutAppActivity.class);
+        startActivity(intent);
+    }
+
 
     public void ThreadsTest(View view)
     {
@@ -108,7 +117,7 @@ public class ThreadsTestActivity extends Activity
         text.setText(R.string.threadstest_finished_text);
 
         builder.setTitle("Your result:");
-        builder.setMessage(threadsBenchmark.resultMessage()+"\nYour gauged score being: "+ResultGauge.threadsScore(threadsBenchmark.getResult()));
+        builder.setMessage(threadsBenchmark.resultMessage()+"\n Your gauged score being "+ResultGauge.threadsScore(TimeUnit.convert(threadsBenchmark.getResult(), TimeUnit.MILI)));
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
         {
             @Override
@@ -117,6 +126,7 @@ public class ThreadsTestActivity extends Activity
                 dialogInterface.dismiss();
             }
         });
+        builder.show();
 
         button.setText(R.string.back_button);
         button.setEnabled(true);

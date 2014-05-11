@@ -8,8 +8,8 @@ import com.upt.cti.droidpi.benchmarking.timing.Timer;
 public class ThreadsBenchmark implements IBenchmark
 {
     private Thread threads[];
-    private final int n=100;
-    private final int nThreads=25;
+    private final int n=1000;
+    private final int nThreads=250;
 
     private Timer t;
     private long result;
@@ -18,12 +18,21 @@ public class ThreadsBenchmark implements IBenchmark
     public void initialize()
     {
         t=new Timer();
+        this.threads = new Thread[this.nThreads];
+    }
+
+    @Override
+    public void warmUp()
+    {
+        String s="There is no point in warming this test up";
+
+        s=s+". I just added these to avoid all the annoying warnings lol";
     }
 
     @Override
     public void runTest()
     {
-        this.threads = new Thread[this.nThreads];
+        this.initialize();
 
         t.start();
         for (int i = 0; i < this.nThreads; i++)
@@ -53,6 +62,6 @@ public class ThreadsBenchmark implements IBenchmark
     @Override
     public String resultMessage()
     {
-        return Logger.write("25 threads have been created, merged, and demised. The whole process took: ", TimeUnit.convert(this.result,TimeUnit.MILI), TimeUnit.MILI);
+        return Logger.write("250 threads have been created, merged, and demised. The whole process took ", TimeUnit.convert(this.result,TimeUnit.MILI), TimeUnit.MILI);
     }
 }
