@@ -45,7 +45,7 @@
     <string name="app_description">This application was developed by Stefania-Bianca Costache and
         Nashwan-Mouhammad Azhari, two students from the University \"Politehnica\" of Timisoara,
         as part of their practical assignment for the subject entitled \"Computer Organization\";
-        all under the exquisite guidance of Professor Mircea Udrescu, the course\'s head lecturer, and Professor
+        all under the exquisite guidance of Professor Mihai Udrescu, the course\'s head lecturer, and Professor
         Alexandru Topirceanu, the one in charge of the laboratory hours, for whose respective involvements we are
         thoroughly in debt. \n\nEntitled simply \"DroidPI\", a name derived from the very first benchmark
         we have ever written, this application aims to serve a narrow but significant nieche: that of the
@@ -63,13 +63,13 @@
         the Samsung Galaxy S4, arguably one of the most powerful phones on the market upon this application\'s inception.\n
         Now granted, due to numerous outside influences the final assessed score may vary, even exceeding 100 in the case of
         higher end phones. The shortcomings of the scoring system were part of the compromise of making the application as
-        transparent and non-invasive as possible whilst still offering a tangible result apart from a time measurement /n/n
+        transparent and non-invasive as possible whilst still offering a tangible result apart from a time measurement\n\n
         As the authors, we would like to thank you for trying out the application. Although it may seem insignificant
         to you, the making of this greatly contributed to the skillsets and overall awareness of the developers and
         vastly broadened their knowledge of the working of hardware benchmarking, an activity we hope to partake in
         again in the near future.\n\nIf you have (surprisingly) stayed with us this long, and because we are firm
         advocates of the Open-Source model, we would like to welcome you to view, analyse, fork and freely use
-        the source code for this application, which can be found in full Android Studio Gradle project form at /n\n
+        the source code for this application, which can be found in full Android Studio Gradle project form at \n\n
         https://github.com/aznashwan/DroidPI
     </string>
 
