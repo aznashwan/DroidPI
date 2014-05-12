@@ -85,6 +85,6 @@ public class PIBenchmark implements IBenchmark
     @Override
     public String resultMessage()
     {
-        return Logger.write("10000 digits of PI have been computed, it took your device ", TimeUnit.convert(this.result, TimeUnit.MILI), TimeUnit.MILI);
+        return Logger.write("1000 digits of PI have been computed, it took your device ", TimeUnit.convert(this.result, TimeUnit.MILI), TimeUnit.MILI);
     }
 }
