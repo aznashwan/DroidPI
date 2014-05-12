@@ -20,7 +20,8 @@ import com.upt.cti.droidpi.benchmarking.benchmarks.ArithmeticBenchmark;
 import com.upt.cti.droidpi.benchmarking.timing.TimeUnit;
 
 
-public class ArithmeticTestActivity extends Activity {
+public class ArithmeticTestActivity extends Activity
+{
 
     private TextView text;
     private Button button;
@@ -31,10 +32,12 @@ public class ArithmeticTestActivity extends Activity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arithmetictest);
-        if (savedInstanceState == null) {
+        if(savedInstanceState==null)
+        {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
@@ -43,19 +46,22 @@ public class ArithmeticTestActivity extends Activity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.arithmetic_test, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_about) {
+        int id=item.getItemId();
+        if(id==R.id.action_about)
+        {
             this.showDescription();
         }
         return super.onOptionsItemSelected(item);
@@ -64,15 +70,18 @@ public class ArithmeticTestActivity extends Activity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment
+    {
 
-        public PlaceholderFragment() {
+        public PlaceholderFragment()
+        {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_arithmetictest, container, false);
+                                 Bundle savedInstanceState)
+        {
+            View rootView=inflater.inflate(R.layout.fragment_arithmetictest, container, false);
             return rootView;
         }
     }

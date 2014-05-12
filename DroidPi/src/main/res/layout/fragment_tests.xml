@@ -26,7 +26,7 @@
             android:onClick="piTest"
             android:text="@string/pi_tests_option"
             android:textColor="@android:color/white"
-        />
+            />
     </LinearLayout>
 
     <LinearLayout

@@ -18,7 +18,7 @@ public class ThreadsBenchmark implements IBenchmark
     public void initialize()
     {
         t=new Timer();
-        this.threads = new Thread[this.nThreads];
+        this.threads=new Thread[this.nThreads];
     }
 
     @Override
@@ -35,18 +35,21 @@ public class ThreadsBenchmark implements IBenchmark
         this.initialize();
 
         t.start();
-        for (int i = 0; i < this.nThreads; i++)
+        for(int i=0; i<this.nThreads; i++)
         {
-            SquareRootWorker sqrtWorker = new SquareRootWorker(i*n/nThreads,(i+1)*n/nThreads);
-            threads[i] = new Thread(sqrtWorker);
+            SquareRootWorker sqrtWorker=new SquareRootWorker(i*n/nThreads, (i+1)*n/nThreads);
+            threads[i]=new Thread(sqrtWorker);
             threads[i].start();
         }
 
-        for (int i = 0; i < this.nThreads; i++)
+        for(int i=0; i<this.nThreads; i++)
         {
-            try {
+            try
+            {
                 threads[i].join();
-            } catch (InterruptedException e) {
+            }
+            catch(InterruptedException e)
+            {
                 e.printStackTrace();
             }
         }
@@ -62,6 +65,6 @@ public class ThreadsBenchmark implements IBenchmark
     @Override
     public String resultMessage()
     {
-        return Logger.write("250 threads have been created, merged, and demised. The whole process took ", TimeUnit.convert(this.result,TimeUnit.MILI), TimeUnit.MILI);
+        return Logger.write("250 threads have been created, merged, and demised. The whole process took ", TimeUnit.convert(this.result, TimeUnit.MILI), TimeUnit.MILI);
     }
 }

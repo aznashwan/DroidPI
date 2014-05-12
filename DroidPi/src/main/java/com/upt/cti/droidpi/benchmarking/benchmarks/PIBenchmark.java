@@ -10,10 +10,10 @@ import java.math.RoundingMode;
 
 public class PIBenchmark implements IBenchmark
 {
-    private static final BigDecimal TWO = new BigDecimal("2");
-    private static final BigDecimal FOUR = new BigDecimal("4");
-    private static final BigDecimal FIVE = new BigDecimal("5");
-    private static final BigDecimal TWO_THIRTY_NINE = new BigDecimal("239");
+    private static final BigDecimal TWO=new BigDecimal("2");
+    private static final BigDecimal FOUR=new BigDecimal("4");
+    private static final BigDecimal FIVE=new BigDecimal("5");
+    private static final BigDecimal TWO_THIRTY_NINE=new BigDecimal("239");
     private static final int numDigits=10000;
     private static final int calcSize=10010;
 
@@ -32,7 +32,7 @@ public class PIBenchmark implements IBenchmark
     @Override
     public void warmUp()
     {
-        this.PI(10,15);
+        this.PI(10, 15);
     }
 
     private BigDecimal PI(int calcSize, int size)
@@ -46,21 +46,21 @@ public class PIBenchmark implements IBenchmark
     private BigDecimal arccot(BigDecimal x, int numDigits)
     {
 
-        BigDecimal unity = BigDecimal.ONE.setScale(numDigits,
+        BigDecimal unity=BigDecimal.ONE.setScale(numDigits,
                 RoundingMode.DOWN);
-        BigDecimal sum = unity.divide(x, RoundingMode.DOWN);
-        BigDecimal xpower = new BigDecimal(sum.toString());
-        BigDecimal term = null;
+        BigDecimal sum=unity.divide(x, RoundingMode.DOWN);
+        BigDecimal xpower=new BigDecimal(sum.toString());
+        BigDecimal term=null;
 
-        boolean add = false;
+        boolean add=false;
 
-        for(BigDecimal n = new BigDecimal("3"); term == null ||
-                term.compareTo(BigDecimal.ZERO)!=0; n = n.add(TWO))
+        for(BigDecimal n=new BigDecimal("3"); term==null||
+                term.compareTo(BigDecimal.ZERO)!=0; n=n.add(TWO))
         {
-            xpower = xpower.divide(x.pow(2), RoundingMode.DOWN);
-            term = xpower.divide(n, RoundingMode.DOWN);
-            sum = add ? sum.add(term) : sum.subtract(term);
-            add = ! add;
+            xpower=xpower.divide(x.pow(2), RoundingMode.DOWN);
+            term=xpower.divide(n, RoundingMode.DOWN);
+            sum=add ? sum.add(term) : sum.subtract(term);
+            add=!add;
         }
         return sum;
     }
@@ -72,7 +72,7 @@ public class PIBenchmark implements IBenchmark
         this.warmUp();
 
         t.start();
-        this.PI(numDigits,calcSize);
+        this.PI(numDigits, calcSize);
         this.result=t.stop();
     }
 
@@ -85,6 +85,6 @@ public class PIBenchmark implements IBenchmark
     @Override
     public String resultMessage()
     {
-        return Logger.write("10000 digits of PI have been computed, it took your device ", TimeUnit.convert(this.result,TimeUnit.MILI), TimeUnit.MILI);
+        return Logger.write("10000 digits of PI have been computed, it took your device ", TimeUnit.convert(this.result, TimeUnit.MILI), TimeUnit.MILI);
     }
 }

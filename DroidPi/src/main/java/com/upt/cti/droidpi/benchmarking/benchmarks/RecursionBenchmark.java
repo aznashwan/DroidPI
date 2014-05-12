@@ -21,7 +21,7 @@ public class RecursionBenchmark implements IBenchmark
     @Override
     public void warmUp()
     {
-        this.recursivePrimeSum(2,20);
+        this.recursivePrimeSum(2, 20);
     }
 
     private int recursivePrimeSum(int i, int n)
@@ -30,8 +30,9 @@ public class RecursionBenchmark implements IBenchmark
         if(prime>=n) return 0;
         try
         {
-            return prime+recursivePrimeSum(prime+1,n);
-        }catch(StackOverflowError e)
+            return prime+recursivePrimeSum(prime+1, n);
+        }
+        catch(StackOverflowError e)
         {
             return 0;
         }
@@ -39,14 +40,14 @@ public class RecursionBenchmark implements IBenchmark
 
     private int findNextPrime(int i)
     {
-        for(;;i++)
+        for(; ; i++)
             if(isPrime(i)) return i;
     }
 
     private boolean isPrime(int i)
     {
         int j;
-        for(j=2;j<=Math.sqrt((double)i);j=j+1)
+        for(j=2; j<=Math.sqrt((double) i); j=j+1)
             if(i%j==0) return false;
         return true;
     }
@@ -58,7 +59,7 @@ public class RecursionBenchmark implements IBenchmark
         this.warmUp();
 
         t.start();
-        this.recursivePrimeSum(2,nPrimes);
+        this.recursivePrimeSum(2, nPrimes);
         result=t.stop();
     }
 
@@ -71,6 +72,6 @@ public class RecursionBenchmark implements IBenchmark
     @Override
     public String resultMessage()
     {
-        return Logger.write("The sum of the first 10000 primes was computed recursively in ", TimeUnit.convert(this.result,TimeUnit.MICRO), TimeUnit.MICRO);
+        return Logger.write("The sum of the first 10000 primes was computed recursively in ", TimeUnit.convert(this.result, TimeUnit.MICRO), TimeUnit.MICRO);
     }
 }
